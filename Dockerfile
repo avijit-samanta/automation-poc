@@ -3,10 +3,9 @@ MAINTAINER Avijit Samanta
 
 # Update and install s/w
 RUN apt-get update
-RUN apt-get upgrade
 
 # Install a Desktop and VNC Server
-# refer to https://linode.com/docs/applications/remote-desktop/install-vnc-on-ubuntu-16-04
+# Refer to https://linode.com/docs/applications/remote-desktop/install-vnc-on-ubuntu-16-04
 RUN apt-get --yes --force-yes install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
 RUN apt-get install -y openjdk-8-jdk git wget unzip curl 
 RUN apt-get install -y git maven
@@ -32,7 +31,6 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN git clone -b base --single-branch https://github.com/avijit-samanta/selenium-bdd-poc.git
 WORKDIR selenium-bdd-poc
 RUN mvn install
-
 
 # --------------- Another way of VNC Server installation ----
 # RUN apt-get --yes --force-yes install
