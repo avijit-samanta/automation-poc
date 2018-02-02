@@ -1,4 +1,5 @@
-FROM ubuntu:16.04
+#FROM ubuntu:16.04
+FROM ubuntu
 MAINTAINER Avijit Samanta
 
 # Update and install s/w
