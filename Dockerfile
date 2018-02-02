@@ -6,7 +6,19 @@ RUN apt-get update
 
 # Install a Desktop and VNC Server
 # Refer to https://linode.com/docs/applications/remote-desktop/install-vnc-on-ubuntu-16-04
-RUN apt-get --yes --force-yes install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
+#RUN apt-get --yes --force-yes install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
+
+# --------------- Another way of VNC Server installation ----
+RUN apt-get --yes --force-yes install -y python-pip python-dev build-essential 
+RUN pip install --upgrade pip 
+RUN pip install --upgrade virtualenv 
+
+Upgrade pip, install Git & VNC 	
+RUN pip install --upgrade pip \
+        && apt-get update \
+        && apt-get install -y git x11vnc
+# -----------------------------------------------------------
+
 RUN apt-get install -y openjdk-8-jdk git wget unzip curl 
 RUN apt-get install -y git maven
 RUN apt-get install -y xvfb libxi6 libgconf-2-4
@@ -31,16 +43,3 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN git clone -b base --single-branch https://github.com/avijit-samanta/selenium-bdd-poc.git
 WORKDIR selenium-bdd-poc
 RUN mvn install
-
-# --------------- Another way of VNC Server installation ----
-# RUN apt-get --yes --force-yes install
-#RUN apt-get --yes --force-yes install -y python-pip python-dev build-essential 
-#RUN pip install --upgrade pip 
-#RUN pip install --upgrade virtualenv 
-
-#Upgrade pip, install Git & VNC 	
-#RUN pip install --upgrade pip \
-#        && apt-get update \
-#        && apt-get install -y git x11vnc
-# -----------------------------------------------------------
-
