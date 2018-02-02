@@ -23,7 +23,7 @@ RUN pip install --upgrade pip \
 RUN apt-get install -y openjdk-8-jdk git wget unzip curl 
 RUN apt-get install -y git maven
 RUN apt-get install -y xvfb libxi6 libgconf-2-4
-RUN apt-get install vnc4server
+#RUN apt-get install vnc4server
 
 #  Install Chrome driver for Ubuntu
 RUN wget -N http://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip
